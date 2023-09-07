@@ -12,7 +12,19 @@ class HomePage extends StatelessWidget {
         title: const Text("First Application"),
       ),
       body: Center(child: Text("Welcome to Day $day of Flutter by $name.")),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(child: Text("Menu")),
+            ListTile(
+              title: const Text("Option 1"),
+              onTap: () {
+                Navigator.pop(context, false);
+              },
+            )
+          ],
+        ),
+      ),
     );
   }
 }
