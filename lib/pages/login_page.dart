@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_intro_project/pages/home_page.dart';
 import 'package:flutter_intro_project/utils/routes.dart';
 
 class LoginPage extends StatelessWidget {
