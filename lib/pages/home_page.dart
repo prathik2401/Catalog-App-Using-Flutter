@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_intro_project/pages/login_page.dart';
+import 'package:flutter_intro_project/utils/routes.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
@@ -21,7 +22,8 @@ class HomePage extends StatelessWidget {
               title: const Text("Login"),
               onTap: () {
                 const LoginPage();
-                Navigator.pop(context, false);
+                Navigator.pop(context, true);
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
               },
             )
           ],
