@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_intro_project/pages/login_page.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
@@ -17,8 +18,9 @@ class HomePage extends StatelessWidget {
           children: [
             const DrawerHeader(child: Text("Menu")),
             ListTile(
-              title: const Text("Option 1"),
+              title: const Text("Login"),
               onTap: () {
+                const LoginPage();
                 Navigator.pop(context, false);
               },
             )
