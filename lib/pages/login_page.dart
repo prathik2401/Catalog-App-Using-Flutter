@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               const SizedBox(
-                height: 24.0,
+                height: 30.0,
               ),
               Image.asset(
                 "assets/images/login_image.png",
@@ -45,7 +45,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(
                 height: 30.0,
-                child: Text('Login'),
+                child: Text(
+                  'Login',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               Align(
                   alignment: Alignment.center,
@@ -63,19 +66,20 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: const InputDecoration(
-                          hintText: "Enter Username", labelText: "Username"),
-                      onChanged: (value) {
-                        name = value;
-                        setState(() {});
-                      },
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Username cannot be empty";
-                        }
-                        return null;
-                      },
-                    ),
+                        decoration: const InputDecoration(
+                            hintText: "Enter Username", labelText: "Username"),
+                        onChanged: (value) {
+                          name = value;
+                          setState(() {});
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Username cannot be empty";
+                          } else if (value.length < 3) {
+                            return "Length of username should be more than 3 characters";
+                          }
+                          return null;
+                        }),
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(

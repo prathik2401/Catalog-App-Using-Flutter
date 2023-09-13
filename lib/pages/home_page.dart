@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_intro_project/pages/login_page.dart';
-import 'package:flutter_intro_project/utils/routes.dart';
+import 'package:flutter_intro_project/widget/drawer.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
@@ -14,21 +13,7 @@ class HomePage extends StatelessWidget {
         title: const Text("First Application"),
       ),
       body: const Center(child: Text("Welcome 👋")),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const DrawerHeader(child: Text("Menu")),
-            ListTile(
-              title: const Text("Login"),
-              onTap: () {
-                const LoginPage();
-                Navigator.pop(context, true);
-                Navigator.pushNamed(context, MyRoutes.loginRoute);
-              },
-            )
-          ],
-        ),
-      ),
+      drawer: const MyDrawer(),
     );
   }
 }
