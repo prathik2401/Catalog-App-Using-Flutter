@@ -1,5 +1,18 @@
+class CatalogModel {
+  static final items = [
+    Item(
+        id: 1,
+        color: "White",
+        desc: "The ultimate iPhone",
+        imageUrl:
+            "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-compare-iphone-15-pro-202309?wid=384&hei=512&fmt=jpeg&qlt=90&.v=1692827834790",
+        name: "Apple iPhone 15 Pro",
+        price: 1199)
+  ];
+}
+
 class Item {
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -14,13 +27,3 @@ class Item {
       required this.color,
       required this.imageUrl});
 }
-
-final products = [
-  Item(
-      id: "prathik001",
-      color: "White",
-      desc: "Latest gen iphone",
-      imageUrl: "",
-      name: "iPhone 15 Pro",
-      price: 1299),
-];
