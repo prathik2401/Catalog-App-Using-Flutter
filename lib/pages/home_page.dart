@@ -53,9 +53,7 @@ class _HomePageState extends State<HomePage> {
                         CatalogModel.items.isNotEmpty)
                       CatalogList().expand()
                     else
-                      const Center(
-                        child: CircularProgressIndicator(),
-                      )
+                      const CircularProgressIndicator()
                   ])),
         ));
   }
@@ -75,7 +73,7 @@ class CatalogHeader extends StatelessWidget {
           .fontFamily(GoogleFonts.poppins().fontFamily.toString())
           .make(),
       "Trending products".text.xl.make()
-    ]);
+    ]).pOnly(bottom: 8);
   }
 }
 
