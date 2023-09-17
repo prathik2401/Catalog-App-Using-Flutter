@@ -20,7 +20,7 @@ class HomeDetailsPage extends StatelessWidget {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
       ),
       backgroundColor: Colors.white,
       bottomNavigationBar: Container(
@@ -38,8 +38,8 @@ class HomeDetailsPage extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all(MyTheme.darkBluish),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Buy".text.xl.make(),
-              ).wh(100, 45).pOnly(right: 0)
+                child: "Add to cart".text.lg.make(),
+              ).wh(120, 45).pOnly(right: 0)
             ],
           ).pOnly(bottom: 40, left: 32, top: 32, right: 20),
         ),
@@ -67,7 +67,12 @@ class HomeDetailsPage extends StatelessWidget {
                           .py8(),
                       catalog.desc.text.xl
                           .textStyle(context.captionStyle)
+                          .make(),
+                      "Amet clita clita eos et nonumy dolores kasd, elitr stet dolor accusam et. Voluptua voluptua magna sit takimata et eirmod clita. No lorem at eirmod sed accusam kasd lorem labore. Diam nonumy eirmod diam takimata dolores. Ipsum nonumy duo erat labore dolor et et ipsum lorem, sit sanctus erat tempor."
+                          .text
+                          .textStyle(context.captionStyle)
                           .make()
+                          .p16()
                     ]).py64(),
                   )),
             )
