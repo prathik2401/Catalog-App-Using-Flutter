@@ -4,6 +4,12 @@ import 'dart:convert';
 class CatalogModel {
   // ignore: prefer_typing_uninitialized_variables
   static var items;
+  //Get Item by ID
+  static getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  //Get Item by Position
+  static getByPosition(int pos) => items[pos];
 }
 
 class Item {

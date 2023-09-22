@@ -52,7 +52,9 @@ class MyTheme {
             color: Colors.black,
             elevation: 0.0,
             iconTheme: IconThemeData(color: Colors.white),
-            titleTextStyle: TextStyle(color: Colors.white)),
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+            )),
         textTheme: Theme.of(context).textTheme.copyWith(
                 bodySmall: const TextStyle(
               color: Colors.white,
