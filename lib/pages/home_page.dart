@@ -10,7 +10,6 @@ import 'package:flutter_intro_project/widget/home_widgets/catalog_list.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:flutter_intro_project/products/product_catalog.dart';
-import 'package:flutter_intro_project/widget/themes.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
@@ -43,11 +42,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-          backgroundColor: MyTheme.darkBluish,
-          child: const Icon(CupertinoIcons.cart),
-        ),
-        backgroundColor: MyTheme.creamColor,
+            onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+            child: const Icon(
+              CupertinoIcons.cart,
+              color: Colors.white,
+            )),
+        backgroundColor: context.canvasColor,
         body: SafeArea(
           child: Container(
               padding: Vx.m32,

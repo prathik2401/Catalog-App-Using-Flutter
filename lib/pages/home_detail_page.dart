@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_intro_project/widget/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_intro_project/products/product_catalog.dart';
 
@@ -22,9 +22,9 @@ class HomeDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: MyTheme.creamColor,
+        color: context.cardColor,
         child: SafeArea(
           bottom: false,
           child: ButtonBar(
@@ -35,10 +35,8 @@ class HomeDetailsPage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluish),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
-                child: "Add to cart".text.lg.make(),
+                child: "Add to cart".text.lg.white.make(),
               ).wh(120, 45).pOnly(right: 0)
             ],
           ).pOnly(bottom: 40, left: 32, top: 32, right: 20),
@@ -59,10 +57,10 @@ class HomeDetailsPage extends StatelessWidget {
                   edge: VxEdge.top,
                   child: Container(
                     width: context.screenWidth,
-                    color: MyTheme.creamColor,
+                    color: context.cardColor,
                     child: Column(children: [
                       catalog.name.text.xl4.bold
-                          .color(MyTheme.darkBluish)
+                          .color(context.accentColor)
                           .make()
                           .py8(),
                       catalog.desc.text.xl

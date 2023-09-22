@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_intro_project/widget/home_widgets/catalog_image.dart';
 import 'package:flutter_intro_project/products/product_catalog.dart';
-import 'package:flutter_intro_project/widget/themes.dart';
+// import 'package:flutter_intro_project/widget/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogItem extends StatelessWidget {
@@ -26,8 +26,11 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.bold.lg.color(MyTheme.darkBluish).make(),
-              catalog.desc.text.textStyle(context.captionStyle).make(),
+              catalog.name.text.bold.lg.color(context.accentColor).make(),
+              catalog.desc.text
+                  .textStyle(context.captionStyle)
+                  .color(context.accentColor)
+                  .make(),
               10.heightBox,
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
@@ -38,13 +41,13 @@ class CatalogItem extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(MyTheme.darkBluish),
+                            MaterialStateProperty.all(context.primaryColor),
                         shape:
                             MaterialStateProperty.all(const StadiumBorder())),
                     child: "Add to cart"
                         .text
                         .textStyle(context.bodySmall)
-                        .white
+                        .color(Colors.white)
                         .make(),
                   )
                 ],
@@ -53,6 +56,6 @@ class CatalogItem extends StatelessWidget {
           ))
         ],
       ),
-    ).white.rounded.square(150).make().py16();
+    ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }

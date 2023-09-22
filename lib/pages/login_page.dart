@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_intro_project/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formkey,
@@ -38,6 +39,8 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(
                 height: 30.0,
+                child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.white)),
               ),
               Image.asset(
                 "assets/images/login_image.png",
@@ -45,17 +48,24 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(
                 height: 30.0,
+                child: DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.white)),
+              ),
+              SizedBox(
+                height: 30.0,
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: context.accentColor),
                 ),
               ),
               Align(
                   alignment: Alignment.center,
                   child: Text(
                     "Welcome $name",
-                    style: const TextStyle(
-                        fontSize: 32, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: context.accentColor),
                   )),
               const SizedBox(
                 height: 30.0,
@@ -66,8 +76,11 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
+                        style: TextStyle(color: context.accentColor),
                         decoration: const InputDecoration(
-                            hintText: "Enter Username", labelText: "Username"),
+                          hintText: "Enter Username",
+                          labelText: "Username",
+                        ),
                         onChanged: (value) {
                           name = value;
                           setState(() {});
@@ -81,9 +94,13 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         }),
                     TextFormField(
+                      style: TextStyle(color: context.accentColor),
+                      cursorColor: context.accentColor,
                       obscureText: true,
                       decoration: const InputDecoration(
-                          hintText: "Enter Password", labelText: "Password"),
+                        hintText: "Enter Password",
+                        labelText: "Password",
+                      ),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Password cannot be empty";
@@ -100,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30.0,
               ),
               Material(
-                color: Colors.deepPurple,
+                color: context.primaryColor,
                 borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                 child: InkWell(
                   onTap: () => moveToHome(context),
