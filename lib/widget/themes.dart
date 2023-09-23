@@ -34,7 +34,8 @@ class MyTheme {
         fontFamily: GoogleFonts.montserrat().fontFamily,
         primaryTextTheme: TextTheme(titleLarge: TextStyle(color: lightBluish)),
         buttonTheme: ButtonThemeData(
-            colorScheme: ColorScheme.fromSwatch(backgroundColor: lightBluish)),
+          colorScheme: ColorScheme.fromSwatch(backgroundColor: lightBluish),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(lightBluish),
