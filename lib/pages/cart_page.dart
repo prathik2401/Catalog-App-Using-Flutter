@@ -36,7 +36,12 @@ class _CartTotal extends StatelessWidget {
         children: [
           "\$9999".text.xl5.color(context.accentColor).make(),
           30.widthBox,
-          ElevatedButton(onPressed: () {}, child: "Buy".text.make())
+          ElevatedButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: "Buying not supported yet.".text.make()));
+                  },
+                  child: "Buy".text.white.make())
               .w32(context)
         ],
       ),
@@ -45,11 +50,12 @@ class _CartTotal extends StatelessWidget {
 }
 
 class _CartList extends StatelessWidget {
-  const _CartList({super.key});
+  const _CartList();
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        itemCount: 5,
         itemBuilder: (context, index) => ListTile(
               leading: const Icon(Icons.done),
               trailing: IconButton(

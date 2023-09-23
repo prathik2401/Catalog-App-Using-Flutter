@@ -5,10 +5,11 @@ import 'package:velocity_x/velocity_x.dart';
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
       primaryColor: darkBluish,
+      listTileTheme: ListTileThemeData(textColor: darkBluish),
       colorScheme: ColorScheme.light(primary: darkBluish, secondary: darkBluish)
           .copyWith(brightness: Brightness.light),
       primaryTextTheme: TextTheme(titleLarge: TextStyle(color: darkBluish)),
-      fontFamily: GoogleFonts.montserrat().fontFamily,
+      fontFamily: GoogleFonts.montserrat(color: darkBluish).fontFamily,
       cardColor: Colors.white,
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: darkBluish),
@@ -31,7 +32,8 @@ class MyTheme {
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         primaryColor: lightBluish,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
+        listTileTheme: const ListTileThemeData(textColor: Colors.white),
+        fontFamily: GoogleFonts.montserrat(color: lightBluish).fontFamily,
         primaryTextTheme: TextTheme(titleLarge: TextStyle(color: lightBluish)),
         buttonTheme: ButtonThemeData(
           colorScheme: ColorScheme.fromSwatch(backgroundColor: lightBluish),
