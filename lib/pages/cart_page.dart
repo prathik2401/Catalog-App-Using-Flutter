@@ -16,7 +16,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const _CartList().p32().expand(),
+          _CartList().p32().expand(),
           const Divider(),
           const _CartTotal(),
         ],
@@ -58,14 +58,7 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList();
-
-  @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
+class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = CartModel();
@@ -85,7 +78,6 @@ class _CartListState extends State<_CartList> {
                     cart.remove(
                       cart.items[index],
                     );
-                    setState(() {});
                   },
                 ),
                 title: "${cart.items[index].name}".text.make()),

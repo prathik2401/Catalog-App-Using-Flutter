@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_intro_project/core/store.dart';
 import 'package:flutter_intro_project/pages/cart_page.dart';
 import 'package:flutter_intro_project/pages/home_page.dart';
 import 'package:flutter_intro_project/pages/login_page.dart';
 import 'package:flutter_intro_project/utils/routes.dart';
 import 'package:flutter_intro_project/widget/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
-  runApp(const MyApplication());
+  runApp(VxState(store: MyStore(), child: const MyApplication()));
 }
 
 // ignore: must_be_immutable
