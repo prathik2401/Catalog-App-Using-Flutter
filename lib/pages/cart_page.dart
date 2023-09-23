@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_intro_project/core/store.dart';
 import 'package:flutter_intro_project/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -30,15 +31,16 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = CartModel();
-    return cart.items.isEmpty
+    // ignore: no_leading_underscores_for_local_identifiers
+    final CartModel _cart = (VxState.store as MyStore).cart;
+    return _cart.items.isEmpty
         ? "".text.makeCentered()
         : SizedBox(
             height: 200,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                "\$${cart.totalPrice}"
+                "\$${_cart.totalPrice}"
                     .text
                     .xl5
                     .color(context.accentColor)
@@ -61,26 +63,27 @@ class _CartTotal extends StatelessWidget {
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final cart = CartModel();
-    return cart.items.isEmpty
+    // ignore: no_leading_underscores_for_local_identifiers
+    final CartModel _cart = (VxState.store as MyStore).cart;
+    return _cart.items.isEmpty
         ? "Nothing to show here."
             .text
             .color(context.accentColor)
             .xl3
             .makeCentered()
         : ListView.builder(
-            itemCount: cart.items.length,
+            itemCount: _cart.items.length,
             itemBuilder: (context, index) => ListTile(
                 leading: const Icon(Icons.done),
                 trailing: IconButton(
                   icon: const Icon(Icons.remove_circle_outline),
                   onPressed: () {
-                    cart.remove(
-                      cart.items[index],
+                    _cart.remove(
+                      _cart.items[index],
                     );
                   },
                 ),
-                title: "${cart.items[index].name}".text.make()),
+                title: "${_cart.items[index].name}".text.make()),
           );
   }
 }
