@@ -13,9 +13,7 @@ class ItemWidget extends StatelessWidget {
       shadowColor: Colors.deepPurple,
       shape: const StadiumBorder(),
       child: ListTile(
-        onTap: () {
-          print("${item1.name} pressed");
-        },
+        onTap: () {},
         leading: Image.network(item1.image),
         title: Text(item1.name),
         subtitle: Text(item1.desc),
@@ -23,7 +21,7 @@ class ItemWidget extends StatelessWidget {
           "\$${item1.price}",
           textScaleFactor: 1.5,
           style: const TextStyle(
-            color: Colors.deepPurple,
+            color: Colors.red,
             fontWeight: FontWeight.bold,
           ),
         ),
