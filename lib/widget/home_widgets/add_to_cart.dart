@@ -11,7 +11,7 @@ class AddToCart extends StatelessWidget {
   final cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    VxState.watch(context, on: [AddMutation]);
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel cart = (VxState.store as MyStore).cart;
     bool isInCart = cart.items.contains(catalog);
     return ElevatedButton(
@@ -24,7 +24,10 @@ class AddToCart extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(context.primaryColor),
             shape: MaterialStateProperty.all(const StadiumBorder())),
         child: isInCart
-            ? const Icon(Icons.done)
+            ? const Icon(
+                Icons.done,
+                color: Colors.white,
+              )
             : const Icon(
                 CupertinoIcons.cart_badge_plus,
                 color: Colors.white,

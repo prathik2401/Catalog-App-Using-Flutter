@@ -40,11 +40,15 @@ class _CartTotal extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                "\$${_cart.totalPrice}"
-                    .text
-                    .xl5
-                    .color(context.accentColor)
-                    .make(),
+                VxConsumer(
+                  notifications: const {},
+                  mutations: const {RemoveMutation},
+                  builder: (context, store, _) => "\$${_cart.totalPrice}"
+                      .text
+                      .xl5
+                      .color(context.accentColor)
+                      .make(),
+                ),
                 30.widthBox,
                 ElevatedButton(
                         onPressed: () {
@@ -63,6 +67,7 @@ class _CartTotal extends StatelessWidget {
 class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
     // ignore: no_leading_underscores_for_local_identifiers
     final CartModel _cart = (VxState.store as MyStore).cart;
     return _cart.items.isEmpty
@@ -74,15 +79,13 @@ class _CartList extends StatelessWidget {
         : ListView.builder(
             itemCount: _cart.items.length,
             itemBuilder: (context, index) => ListTile(
-                leading: const Icon(Icons.done),
-                trailing: IconButton(
-                  icon: const Icon(Icons.remove_circle_outline),
-                  onPressed: () {
-                    _cart.remove(
-                      _cart.items[index],
-                    );
-                  },
+                leading: const Icon(
+                  Icons.done,
+                  color: Colors.white,
                 ),
+                trailing: IconButton(
+                    icon: const Icon(Icons.remove_circle_outline),
+                    onPressed: () => RemoveMutation(_cart.items[index])),
                 title: "${_cart.items[index].name}".text.make()),
           );
   }
