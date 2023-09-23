@@ -31,40 +31,64 @@ class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = CartModel();
-    return SizedBox(
-      height: 200,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          "\$${cart.totalPrice}".text.xl5.color(context.accentColor).make(),
-          30.widthBox,
-          ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: "Buying not supported yet.".text.make()));
-                  },
-                  child: "Buy".text.white.make())
-              .w32(context)
-        ],
-      ),
-    );
+    return cart.items.isEmpty
+        ? "".text.makeCentered()
+        : SizedBox(
+            height: 200,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                "\$${cart.totalPrice}"
+                    .text
+                    .xl5
+                    .color(context.accentColor)
+                    .make(),
+                30.widthBox,
+                ElevatedButton(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  "Buying not supported yet.".text.make()));
+                        },
+                        child: "Buy".text.white.make())
+                    .w32(context)
+              ],
+            ),
+          );
   }
 }
 
-class _CartList extends StatelessWidget {
+class _CartList extends StatefulWidget {
   const _CartList();
 
   @override
+  State<_CartList> createState() => _CartListState();
+}
+
+class _CartListState extends State<_CartList> {
+  @override
   Widget build(BuildContext context) {
     final cart = CartModel();
-    return ListView.builder(
-        itemCount: cart.items.length,
-        itemBuilder: (context, index) => ListTile(
-            leading: const Icon(Icons.done),
-            trailing: IconButton(
-              icon: const Icon(Icons.remove_circle_outline),
-              onPressed: () {},
-            ),
-            title: "${cart.items[index].name}".text.make()));
+    return cart.items.isEmpty
+        ? "Nothing to show here."
+            .text
+            .color(context.accentColor)
+            .xl3
+            .makeCentered()
+        : ListView.builder(
+            itemCount: cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+                leading: const Icon(Icons.done),
+                trailing: IconButton(
+                  icon: const Icon(Icons.remove_circle_outline),
+                  onPressed: () {
+                    cart.remove(
+                      cart.items[index],
+                    );
+                    setState(() {});
+                  },
+                ),
+                title: "${cart.items[index].name}".text.make()),
+          );
   }
 }
