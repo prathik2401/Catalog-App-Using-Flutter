@@ -79,12 +79,15 @@ class _CartList extends StatelessWidget {
         : ListView.builder(
             itemCount: _cart.items.length,
             itemBuilder: (context, index) => ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.done,
-                  color: Colors.white,
+                  color: context.accentColor,
                 ),
                 trailing: IconButton(
-                    icon: const Icon(Icons.remove_circle_outline),
+                    icon: const Icon(
+                      Icons.remove_circle_outline,
+                      color: Vx.red500,
+                    ),
                     onPressed: () => RemoveMutation(_cart.items[index])),
                 title: "${_cart.items[index].name}".text.make()),
           );
