@@ -1,6 +1,6 @@
 # Catalog App for Android
 
-###My first Flutter App.
+### My first Flutter App.
 Catalog app is a dedicated Android Application that I created to learn the basics of Dart and Flutter framework. You can browse through various electronic products such as Mobile Phones, Gaming consoles and accessories. All these products have been fetched from the web. The catalog can switch between dark and light themes, according to which the colors in the application will change
 ## Screenshots
 
